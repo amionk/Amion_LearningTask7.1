@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graphics Showcase</title>
+</head>
+<body>
+
+<!-- First Row -->
+<div style="display: flex; justify-content: space-around; margin-bottom: 20px;">
+
+<!-- Graphic 1 - Smartphone (Larger) with Gradient Screen and Rounded Corners -->
+<div>
+  <canvas id="canvas1" width="200" height="200" style="border:1px solid #000;"></canvas>
+  <script>
+    const canvas1 = document.getElementById('canvas1');
+    const ctx1 = canvas1.getContext('2d');
+
+    // Smartphone body
+    const phoneWidth = 120;
+    const phoneHeight = 180;
+    const phoneX = (canvas1.width - phoneWidth) / 2;
+    const phoneY = (canvas1.height - phoneHeight) / 2;
+    const phoneCornerRadius = 10;
+
+    ctx1.fillStyle = '#494646'; // Light gray color
+    ctx1.beginPath();
+    ctx1.moveTo(phoneX + phoneCornerRadius, phoneY);
+    ctx1.lineTo(phoneX + phoneWidth - phoneCornerRadius, phoneY);
+    ctx1.arcTo(phoneX + phoneWidth, phoneY, phoneX + phoneWidth, phoneY + phoneCornerRadius, phoneCornerRadius);
+    ctx1.lineTo(phoneX + phoneWidth, phoneY + phoneHeight - phoneCornerRadius);
+    ctx1.arcTo(phoneX + phoneWidth, phoneY + phoneHeight, phoneX + phoneWidth - phoneCornerRadius, phoneY + phoneHeight, phoneCornerRadius);
+    ctx1.lineTo(phoneX + phoneCornerRadius, phoneY + phoneHeight);
+    ctx1.arcTo(phoneX, phoneY + phoneHeight, phoneX, phoneY + phoneHeight - phoneCornerRadius, phoneCornerRadius);
+    ctx1.lineTo(phoneX, phoneY + phoneCornerRadius);
+    ctx1.arcTo(phoneX, phoneY, phoneX + phoneCornerRadius, phoneY, phoneCornerRadius);
+    ctx1.fill();
+
+    // Screen gradient
+    const gradient = ctx1.createLinearGradient(phoneX + 10, phoneY + 10, phoneX + 10, phoneY + phoneHeight - 20);
+    gradient.addColorStop(0, '#87CEEB'); // Light blue color
+    gradient.addColorStop(1, '#E0FFFF'); // Light cyan color
+    ctx1.fillStyle = gradient;
+    ctx1.fillRect(phoneX + 10, phoneY + 10, phoneWidth - 20, phoneHeight - 30);
+
+    // Power button
+    ctx1.fillStyle = '#000'; // Black color
+    ctx1.beginPath();
+    ctx1.arc(phoneX + phoneWidth / 2, phoneY + phoneHeight - 10, 8, 0, 2 * Math.PI);
+    ctx1.fill();
+  </script>
+</div>
+
+
+
+<!-- Graphic 2 - Red Cross (Simple Cross) -->
+<div>
+  <canvas id="canvas2" width="200" height="200" style="border:1px solid #000;"></canvas>
+  <script>
+    const canvas2 = document.getElementById('canvas2');
+    const ctx2 = canvas2.getContext('2d');
+
+    // Simple cross
+    ctx2.fillStyle = 'red'; // Red color
+    ctx2.fillRect(80, 40, 40, 120);
+    ctx2.fillRect(40, 80, 120, 40);
+  </script>
+</div>
+
+
+<!-- Graphic 3 - Detailed Line Pattern -->
+<div>
+  <canvas id="canvas3" width="200" height="200" style="border:1px solid #000;"></canvas>
+  <script>
+    const canvas3 = document.getElementById('canvas3');
+    const ctx3 = canvas3.getContext('2d');
+
+    // Detailed line pattern
+    ctx3.lineWidth = 2;
+    for (let i = 0; i < 200; i += 20) {
+      ctx3.beginPath();
+      ctx3.moveTo(i, 0);
+      ctx3.lineTo(i, 200);
+      ctx3.strokeStyle = i % 40 === 0 ? '#0b49d0' : '#a50909'; 
+      ctx3.stroke();
+    }
+  </script>
+</div>
+
+
+
+<!-- Graphic 4 - Barcode  -->
+<div>
+  <canvas id="canvas4" width="200" height="200" style="border:1px solid #000;"></canvas>
+  <script>
+    const canvas4 = document.getElementById('canvas4');
+    const ctx4 = canvas4.getContext('2d');
+
+    // Barcode pattern
+    const barWidth = 5;
+    const barHeight = 150;
+
+    // Draw bar
+    ctx4.fillStyle = '#000';
+    ctx4.fillRect(60, 120, 80, 50);
+
+    // Draw bar
+    ctx4.fillStyle = '#fff';
+    ctx4.fillRect(60, 170, 80, 10);
+
+    // Draw bar
+    ctx4.fillStyle = '#fff';
+    ctx4.fillRect(70, 120, 5, 50);
+    ctx4.fillRect(90, 120, 5, 50);
+    ctx4.fillRect(110, 120, 5, 50);
+
+  </script>
+</div>
+
+
+</div>
+
+<!-- Second Row -->
+<div style="display: flex; justify-content: space-around;">
+
+<!-- Graphic 5 - Sunset Landscape with Waves -->
+<div>
+  <canvas id="canvas5" width="200" height="200" style="border:1px solid #000;"></canvas>
+  <script>
+    const canvas5 = document.getElementById('canvas5');
+    const ctx5 = canvas5.getContext('2d');
+
+    // Sunset Sky Gradient
+    const gradientt = ctx5.createLinearGradient(0, 0, 0, canvas5.height);
+    gradientt.addColorStop(0, '#87CEEB'); // Light blue color at the top
+    gradientt.addColorStop(1, '#d25232'); // Tomato red color at the bottom
+    ctx5.fillStyle = gradientt;
+    ctx5.fillRect(0, 0, canvas5.width, canvas5.height);
+
+    // Sun
+    ctx5.beginPath();
+    ctx5.arc(150, 50, 30, 0, 2 * Math.PI);
+    ctx5.fillStyle = '#f4b010'; // Gold color
+    ctx5.fill();
+
+    // Mountains
+    ctx5.fillStyle = '#8B4513'; // Saddle Brown color
+    ctx5.beginPath();
+    ctx5.moveTo(50, 150);
+    ctx5.lineTo(100, 80);
+    ctx5.lineTo(150, 150);
+    ctx5.fill();
+
+    ctx5.beginPath();
+    ctx5.moveTo(100, 150);
+    ctx5.lineTo(150, 80);
+    ctx5.lineTo(200, 150);
+    ctx5.fill();
+
+    // Sea
+    ctx5.fillStyle = '#0b45cb'; // Blue color
+    ctx5.fillRect(0, 150, canvas5.width, 50);
+
+    // Waves
+    for (let i = 0; i < canvas5.width; i += 20) {
+      ctx5.beginPath();
+      ctx5.moveTo(i, 150);
+      ctx5.quadraticCurveTo(i + 10, 130, i + 20, 150);
+      ctx5.fill();
+    }
+  </script>
+</div>
+
+
+<!-- Graphic 6 - Smiling Face with Hat -->
+<div>
+  <canvas id="canvas6" width="200" height="200" style="border:1px solid #000;"></canvas>
+  <script>
+    const canvas6 = document.getElementById('canvas6');
+    const ctx6 = canvas6.getContext('2d');
+
+    // Face
+    ctx6.fillStyle = '#ffd700'; // Gold color
+    ctx6.beginPath();
+    ctx6.arc(100, 100, 40, 0, 2 * Math.PI);
+    ctx6.fill();
+
+    // Eyes
+    ctx6.fillStyle = '#000';
+    ctx6.beginPath();
+    ctx6.arc(85, 90, 5, 0, 2 * Math.PI);
+    ctx6.fill();
+    ctx6.beginPath();
+    ctx6.arc(115, 90, 5, 0, 2 * Math.PI);
+    ctx6.fill();
+
+    // Mouth
+    ctx6.beginPath();
+    ctx6.arc(100, 110, 20, 0.2 * Math.PI, 0.8 * Math.PI, false);
+    ctx6.fill();
+
+    // Hat
+    ctx6.fillStyle = '#000';
+    ctx6.fillRect(60, 70, 80, 10); // Hat band
+    ctx6.fillRect(70, 40, 60, 30); // Hat top
+  </script>
+</div>
+
+
+
+  <!-- Graphic 7 - Watch -->
+  <div>
+    <canvas id="canvas7" width="200" height="200" style="border:1px solid #000;"></canvas>
+    <script>
+      const canvas7 = document.getElementById('canvas7');
+      const ctx7 = canvas7.getContext('2d');
+
+      // Watch strap
+      ctx7.fillStyle = '#8B4513'; // Saddle Brown color
+      ctx7.fillRect(60, 80, 80, 40);
+
+      // Watch face
+      ctx7.beginPath();
+      ctx7.arc(100, 100, 30, 0, 2 * Math.PI);
+      ctx7.fillStyle = '#000';
+      ctx7.fill();
+
+      // Watch hands
+      ctx7.moveTo(100, 100);
+      ctx7.lineTo(100, 70);
+      ctx7.moveTo(100, 100);
+      ctx7.lineTo(130, 100);
+      ctx7.strokeStyle = '#fff';
+      ctx7.lineWidth = 3;
+      ctx7.stroke();
+    </script>
+  </div>
+
+<!-- Graphic 8 - Umbrella -->
+<div>
+  <canvas id="canvas8" width="200" height="200" style="border:1px solid #000;"></canvas>
+  <script>
+    const canvas8 = document.getElementById('canvas8');
+    const ctx8 = canvas8.getContext('2d');
+
+    // Umbrella canopy
+    ctx8.fillStyle = '#ffcc00'; // Yellow color
+    ctx8.beginPath();
+    ctx8.arc(100, 100, 60, Math.PI, 0, false);
+    ctx8.fill();
+
+    // Umbrella handle
+    ctx8.fillStyle = '#a52a2a'; // Brown color
+    ctx8.fillRect(95, 100, 10, 80);
+
+    // Curved handle
+    ctx8.beginPath();
+    ctx8.arc(100, 180, 10, 0, Math.PI, true);
+    ctx8.fill();
+  </script>
+</div>
+
+
+</div>
+
+</body>
+</html>
