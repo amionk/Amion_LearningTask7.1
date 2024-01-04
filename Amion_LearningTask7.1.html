@@ -69,25 +69,32 @@
 </div>
 
 
-<!-- Graphic 3 - Detailed Line Pattern -->
+<!-- Graphic 3 - Eyeball -->
 <div>
-  <canvas id="canvas3" width="200" height="200" style="border:1px solid #000;"></canvas>
+  <canvas id="canvas3" width="200" height="200" style="border:1px solid #000; background-color: #f5f5f5;"></canvas>
   <script>
     const canvas3 = document.getElementById('canvas3');
     const ctx3 = canvas3.getContext('2d');
 
-    // Detailed line pattern
-    ctx3.lineWidth = 2;
-    for (let i = 0; i < 200; i += 20) {
-      ctx3.beginPath();
-      ctx3.moveTo(i, 0);
-      ctx3.lineTo(i, 200);
-      ctx3.strokeStyle = i % 40 === 0 ? '#0b49d0' : '#a50909'; 
-      ctx3.stroke();
-    }
+    ctx3.fillStyle = '#f5f5f5'; 
+    ctx3.fillRect(0, 0, 200, 200);
+
+    ctx3.fillStyle = '#3498CB';
+    ctx3.beginPath();
+    ctx3.arc(100, 100, 60, 0, 2 * Math.PI);
+    ctx3.fill();
+
+    ctx3.fillStyle = '#1A2D75';
+    ctx3.beginPath();
+    ctx3.arc(100, 100, 40, 0, 2 * Math.PI);
+    ctx3.fill();
+
+    ctx3.fillStyle = '#FFFFFF';
+    ctx3.beginPath();
+    ctx3.arc(120, 80, 8, 0, 2 * Math.PI);
+    ctx3.fill();
   </script>
 </div>
-
 
 
 <!-- Graphic 4 - Barcode  -->
