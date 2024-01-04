@@ -97,36 +97,42 @@
 </div>
 
 
-<!-- Graphic 4 - Barcode  -->
+<!-- Graphic 4 - Calendar with AUG and 14 -->
 <div>
-  <canvas id="canvas4" width="200" height="200" style="border:1px solid #000;"></canvas>
+  <canvas id="canvas4" width="200" height="200" style="border: 1px solid #000;"></canvas>
   <script>
     const canvas4 = document.getElementById('canvas4');
     const ctx4 = canvas4.getContext('2d');
 
-    // Barcode pattern
-    const barWidth = 5;
-    const barHeight = 150;
+    // Background color
+    ctx4.fillStyle = '#FFFFFF';
+    ctx4.fillRect(0, 0, 200, 200);
 
-    // Draw bar
-    ctx4.fillStyle = '#000';
-    ctx4.fillRect(60, 120, 80, 50);
+    // Draw calendar body
+    ctx4.fillStyle = '#F4E7C9';
+    ctx4.fillRect(10, 30, 180, 150);
 
-    // Draw bar
-    ctx4.fillStyle = '#fff';
-    ctx4.fillRect(60, 170, 80, 10);
+    // Draw calendar header
+    ctx4.fillStyle = '#B55959';
+    ctx4.fillRect(10, 30, 180, 40);
 
-    // Draw bar
-    ctx4.fillStyle = '#fff';
-    ctx4.fillRect(70, 120, 5, 50);
-    ctx4.fillRect(90, 120, 5, 50);
-    ctx4.fillRect(110, 120, 5, 50);
+    // Text inside the header (AUG)
+    ctx4.font = '30px Arial';
+    ctx4.fillStyle = '#FCF8F0';
+    ctx4.textAlign = 'center';
+    ctx4.textBaseline = 'middle';
+    ctx4.fillText('AUG', 100, 50);
 
+    // Text inside the body (14)
+    ctx4.font = '80px Arial';
+    ctx4.fillStyle = '#594B4B';
+    ctx4.textAlign = 'center';
+    ctx4.textBaseline = 'middle';
+    ctx4.fillText('14', 100, 125);
   </script>
 </div>
-
-
 </div>
+
 
 <!-- Second Row -->
 <div style="display: flex; justify-content: space-around;">
